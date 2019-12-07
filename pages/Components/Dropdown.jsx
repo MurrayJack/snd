@@ -6,19 +6,18 @@ export default ({ Items }) => {
     <>
       <div>
         <ul>
-          {Items.map(e => (
-            <li>
-              {e.Folder ? (
-                <Folder>{e.Caption}</Folder>
-              ) : (
-                <Leaf>{e.Caption}</Leaf>
-              )}
+          {Items.map((e, i) => (
+            <li key={e.Caption + i}>
+              {e.Folder ? <Folder Item={e} /> : <Leaf Item={e} />}
             </li>
           ))}
         </ul>
       </div>
 
       <style jsx>{`
+        div {
+        }
+
         li {
           padding: 8px;
         }
